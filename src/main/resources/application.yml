@@ -1,0 +1,16 @@
+#配置当前SpringBoot服务
+server:
+  port: 8090
+  servlet:
+    context-path: /SpringBoot
+
+#Spring相关的配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nac
+    username: root
+    password: 123456
+    #选择的连接池,这里配置的是Druid(阿里)
+    type: com.alibaba.druid.pool.DruidDataSource
+
