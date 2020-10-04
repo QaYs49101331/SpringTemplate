@@ -1,9 +1,14 @@
 package com.baidu.controller;
 
 import com.baidu.pojo.User;
+import com.baidu.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 /**
@@ -13,6 +18,8 @@ import java.util.*;
 @RestController
 public class JsonController {
 
+    @Autowired
+    private UserService userservice;
     @RequestMapping("/getMessage")
     public List Model() throws ClassNotFoundException {
 
@@ -27,7 +34,12 @@ public class JsonController {
         list.add(map);
         Object obj =  Class.forName("com.mysql.jdbc.Driver");
         list.add(obj.getClass());
+        userservice.addUser(user);
+        System.out.println("123456789");
         return list;
+
     }
+
+
 
 }
